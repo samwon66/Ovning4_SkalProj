@@ -5,7 +5,12 @@ namespace SkalProj_Datastrukturer_Minne
     internal class ExamineStack
     {
         private Stack stack = new Stack();
-        
+
+        internal void ExamineStackMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Type '+' to Reverse text.\nType 'q' to go back.");
+        }
 
         internal void ReverseText()
         {

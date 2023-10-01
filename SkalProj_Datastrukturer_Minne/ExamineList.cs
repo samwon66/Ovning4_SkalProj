@@ -13,6 +13,12 @@ namespace SkalProj_Datastrukturer_Minne
         public int Count {  get { return examineList.Count; } }
         public int Capacity {  get { return examineList.Capacity; } }
 
+        internal void ExamineListMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Type '+' to add a name to the list.\nType '-' to remove a name from the list.\nType 'q' to go back.");
+        }
+
         internal void AddToList()
         {
             bool isAdding = true;
@@ -45,8 +51,9 @@ namespace SkalProj_Datastrukturer_Minne
         internal void RemoveFromList()
         {
             bool isRemoving = true;
+            Console.WriteLine("Enter the name to remove.");
             string input = Console.ReadLine();
-
+            
             do
             {
                 switch (input)
@@ -60,7 +67,7 @@ namespace SkalProj_Datastrukturer_Minne
                         break;
 
                     default: 
-                        examineList.Remove(RemoveCheck(input));
+                        Console.WriteLine(RemoveCheck(input));
                         DisplayCountCapacity();
                         break;
 

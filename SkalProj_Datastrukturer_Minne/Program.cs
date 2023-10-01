@@ -10,15 +10,9 @@ namespace SkalProj_Datastrukturer_Minne
         /// <param name="args"></param>
         static void Main()
         {
-            bool keepRunning = true;
-            while (keepRunning)
+            while (true)
             {
-                Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
-                    + "\n1. Examine a List"
-                    + "\n2. Examine a Queue"
-                    + "\n3. Examine a Stack"
-                    + "\n4. CheckParanthesis"
-                    + "\n0. Exit the application");
+                MainMenu();
                 char input = ' '; //Creates the character input to be used with the switch-case below.
                 try
                 {
@@ -57,6 +51,7 @@ namespace SkalProj_Datastrukturer_Minne
             }
         }
 
+
         /// <summary>
         /// Examines the datastructure List
         /// </summary>
@@ -86,29 +81,32 @@ namespace SkalProj_Datastrukturer_Minne
 
             do
             {
-                ExamineListMenu();
+                examineList.ExamineListMenu();
                 char userChoice = InputCheck();
 
                 switch (userChoice)
                 {
                     case '+':
-                        Console.WriteLine("Add name to the list.\nPlease enter the name to add.");
+                        Console.WriteLine("Add name to the list.");
                         examineList.AddToList();
                         Console.Clear();
 
                         break;
 
                     case '-':
-                        Console.WriteLine("Remove name from the list.\nPlease enter the name you want to remove.");
+                        Console.WriteLine("Remove name from the list.");
                         examineList.RemoveFromList();
+                        Console.Clear();
                         break;
 
                     case 'q':
                         Console.Clear();
-                        return;
+                        quit = true;
+                        break;
 
                     default:
                         Console.WriteLine("You have enter an invalid input. Please try again.");
+                        Console.ReadKey();
                         break;
                 }
 
@@ -118,28 +116,6 @@ namespace SkalProj_Datastrukturer_Minne
         }
 
 
-        private static void ExamineListMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("Type '+' to add a name to the list.\nType '-' to remove a name from the list.\nType 'q' to go back.");
-        }
-
-        private static char InputCheck()
-        {
-            char input = ' ';
-
-            try
-            {
-                input = Console.ReadLine()[0];
-            }
-            catch(IndexOutOfRangeException)
-            {
-                Console.Clear();
-                Console.WriteLine("Please enter some input.");
-            }
-            return input;
-        }
-       
 
         /// <summary>
         /// Examines the datastructure Queue
@@ -157,7 +133,7 @@ namespace SkalProj_Datastrukturer_Minne
 
             do
             {
-                ExamineQueueMenu();
+                examineQueue.ExamineQueueMenu();
 
                 char userChoice = InputCheck();
 
@@ -188,11 +164,7 @@ namespace SkalProj_Datastrukturer_Minne
             while (!quit);
         }
 
-        private static void ExamineQueueMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("Type '+' to add to the queue.\nType '-' to remove from the queue.\nType 'q' to go back.");
-        }
+        
 
         /// <summary>
         /// Examines the datastructure Stack
@@ -210,7 +182,7 @@ namespace SkalProj_Datastrukturer_Minne
 
             do
             {
-                ExamineStackMenu();
+                examineStack.ExamineStackMenu();
                 char userChoice = InputCheck();
 
                 switch(userChoice)
@@ -231,11 +203,7 @@ namespace SkalProj_Datastrukturer_Minne
             while (!quit);
         }
 
-        private static void ExamineStackMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("Type '+' to Reverse text.\nType 'q' to go back.");
-        }
+        
 
         static void CheckParanthesis()
         {
@@ -245,6 +213,58 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
+            CheckParanthesis checkParanthesis = new CheckParanthesis();
+            bool quit = false;
+
+            do
+            {
+                checkParanthesis.CheckParanthesisMenu();
+                char userChoice = InputCheck();
+
+                switch (userChoice)
+                {
+                    case '+':
+                        checkParanthesis.isCorrectForm();
+                        Console.Clear();
+                        break;
+
+                    case 'q':
+                        quit = true;
+                        Console.Clear();
+                        break;
+
+                    default:
+                        Console.WriteLine("USe '+' followed by a text of your choice.");
+                        break;
+                }
+            }
+            while (!quit);
+
+        }
+
+        private static void MainMenu()
+        {
+            Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
+                                + "\n1. Examine a List"
+                                + "\n2. Examine a Queue"
+                                + "\n3. Examine a Stack"
+                                + "\n4. CheckParanthesis"
+                                + "\n0. Exit the application");
+        }
+        private static char InputCheck()
+        {
+            char input = ' ';
+
+            try
+            {
+                input = Console.ReadLine()[0];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.Clear();
+                Console.WriteLine("Please enter some input.");
+            }
+            return input;
         }
 
     }

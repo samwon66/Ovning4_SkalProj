@@ -5,9 +5,14 @@ namespace SkalProj_Datastrukturer_Minne
     internal class ExamineQueue
     {
         private Queue queue = new Queue();
-        public int Count { get { return queue.Count; } }    
-        
-        
+        public int Count { get { return queue.Count; } }
+
+        internal void ExamineQueueMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Type '+' to add to the queue.\nType '-' to remove from the queue.\nType 'q' to go back.");
+        }
+
         internal void AddToQueue()
         {
             bool iaAdding = true;
