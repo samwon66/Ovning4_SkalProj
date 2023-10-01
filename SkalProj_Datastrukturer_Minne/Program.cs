@@ -10,8 +10,8 @@ namespace SkalProj_Datastrukturer_Minne
         /// <param name="args"></param>
         static void Main()
         {
-
-            while (true)
+            bool keepRunning = true;
+            while (keepRunning)
             {
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
                     + "\n1. Examine a List"
@@ -72,13 +72,74 @@ namespace SkalProj_Datastrukturer_Minne
              * Below you can see some inspirational code to begin working.
             */
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
 
-            //switch(nav){...}
+            //Frågan 2: När count är lika mycket som capacity.
+            //Frågan 3: Kapacitet blir dubbelt så mycket.
+            //Frågan 4: Listan har en underliggande array och arrayer har alltid en fixerad storlek.
+            //Det blir väldigt ineffektivt för listan att skapa en ny array och kopiera alla nuvarande element till den underliggande arrayen varje gång ett nytt element läggs till i listan.
+            //Därför dubblerar den sin capacity bara ibland när count blir större än capacity.
+            //Frågan 5: Nej
+            //Frågan 6: 
+            Console.Clear();
+
+            ExamineList examineList = new ExamineList();
+            bool quit = false;
+
+            do
+            {
+                ExamineListMenu();
+                char userChoice = InputCheck();
+
+                switch (userChoice)
+                {
+                    case '+':
+                        Console.WriteLine("Add name to the list.\nPlease enter the name to add.");
+                        examineList.AddToList();
+                        Console.Clear();
+
+                        break;
+
+                    case '-':
+                        Console.WriteLine("Remove name from the list.\nPlease enter the name you want to remove.");
+                        examineList.RemoveFromList();
+                        break;
+
+                    case 'q':
+                        Console.Clear();
+                        return;
+
+                    default:
+                        Console.WriteLine("You have enter an invalid input. Please try again.");
+                        break;
+                }
+
+            }
+                while (!quit);
+            
         }
+
+
+        private static void ExamineListMenu()
+        {
+            Console.WriteLine("Type '+' to add a name to the list.\nType '-' to remove a name from the list.\nType 'q' to go back.");
+        }
+
+        private static char InputCheck()
+        {
+            char input = ' ';
+
+            try
+            {
+                input = Console.ReadLine()[0];
+            }
+            catch(IndexOutOfRangeException)
+            {
+                Console.Clear();
+                Console.WriteLine("Please enter some input.");
+            }
+            return input;
+        }
+       
 
         /// <summary>
         /// Examines the datastructure Queue
@@ -90,6 +151,47 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+
+            Console.Clear();
+            ExamineQueue examineQueue = new ExamineQueue();
+            bool quit = false;
+
+            do
+            {
+                ExamineQueueMenu();
+
+                char userChoice = InputCheck();
+
+                switch (userChoice)
+                {
+                    case '+':
+                        //Console.WriteLine("Add name to the list.\nPlease enter the name to add.");
+                        examineQueue.AddToQueue();
+                        Console.Clear();
+
+                        break;
+
+                    case '-':
+                        //Console.WriteLine("Remove name from the list.\nPlease enter the name you want to remove.");
+                        examineQueue.RemoveFromQueue();
+                        break;
+
+                    case 'q':
+                        quit = true;
+                        Console.Clear();
+                        break;
+
+                    default:
+                        Console.WriteLine("You have enter an invalid input. Please try again.");
+                        break;
+                }
+            }
+            while (!quit);
+        }
+
+        private static void ExamineQueueMenu()
+        {
+            Console.WriteLine("Type '+' to add to the queue.\nType '-' to remove from the queue.\nType 'q' to go back.");
         }
 
         /// <summary>
