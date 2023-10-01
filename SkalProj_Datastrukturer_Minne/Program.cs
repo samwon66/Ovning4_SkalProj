@@ -80,8 +80,7 @@ namespace SkalProj_Datastrukturer_Minne
             //Därför dubblerar den sin capacity bara ibland när count blir större än capacity.
             //Frågan 5: Nej
             //Frågan 6: 
-            Console.Clear();
-
+            
             ExamineList examineList = new ExamineList();
             bool quit = false;
 
@@ -121,6 +120,7 @@ namespace SkalProj_Datastrukturer_Minne
 
         private static void ExamineListMenu()
         {
+            Console.Clear();
             Console.WriteLine("Type '+' to add a name to the list.\nType '-' to remove a name from the list.\nType 'q' to go back.");
         }
 
@@ -152,7 +152,6 @@ namespace SkalProj_Datastrukturer_Minne
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
 
-            Console.Clear();
             ExamineQueue examineQueue = new ExamineQueue();
             bool quit = false;
 
@@ -191,6 +190,7 @@ namespace SkalProj_Datastrukturer_Minne
 
         private static void ExamineQueueMenu()
         {
+            Console.Clear();
             Console.WriteLine("Type '+' to add to the queue.\nType '-' to remove from the queue.\nType 'q' to go back.");
         }
 
@@ -204,6 +204,37 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+
+            ExamineStack examineStack = new ExamineStack();
+            bool quit = false;
+
+            do
+            {
+                ExamineStackMenu();
+                char userChoice = InputCheck();
+
+                switch(userChoice)
+                {
+                    case '+':
+                        examineStack.ReverseText();
+                        break;
+
+                    case 'q':
+                        quit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Wrong input.");
+                        break;
+                }
+            }
+            while (!quit);
+        }
+
+        private static void ExamineStackMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Type '+' to Reverse text.\nType 'q' to go back.");
         }
 
         static void CheckParanthesis()
