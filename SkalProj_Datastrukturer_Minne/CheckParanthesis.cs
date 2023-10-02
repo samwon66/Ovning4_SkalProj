@@ -3,7 +3,7 @@
     internal class CheckParanthesis
     {
         private Stack<char> stack = new Stack<char>();
-        public int Count { get { return stack.Count; } }
+        //public int Count { get { return stack.Count; } }
 
         internal void CheckParanthesisMenu()
         {
@@ -14,7 +14,7 @@
         {
             bool isChecking = true;
 
-            do
+            while (isChecking)
             {
                 bool isCorrect = true;
                 string input = Console.ReadLine();
@@ -48,7 +48,7 @@
                 if (isCorrect) { Console.WriteLine("Correct format"); }
                 else { Console.WriteLine("Incorrect format"); }
             }
-            while (isChecking);
+            
 
 
             

@@ -23,7 +23,7 @@ namespace SkalProj_Datastrukturer_Minne
         {
             bool isAdding = true;
 
-            do
+            while (isAdding)
             {
 
                 string input =  Console.ReadLine();
@@ -44,7 +44,7 @@ namespace SkalProj_Datastrukturer_Minne
                         break;
                 }
             }
-            while (isAdding); 
+            
 
         }
 
@@ -53,8 +53,8 @@ namespace SkalProj_Datastrukturer_Minne
             bool isRemoving = true;
             Console.WriteLine("Enter the name to remove.");
             string input = Console.ReadLine();
-            
-            do
+
+            while (isRemoving)
             {
                 switch (input)
                 {
@@ -69,11 +69,12 @@ namespace SkalProj_Datastrukturer_Minne
                     default: 
                         Console.WriteLine(RemoveCheck(input));
                         DisplayCountCapacity();
+                        Console.ReadLine();
                         break;
 
                 }
             }
-            while (isRemoving);
+            
         }
 
         internal void DisplayCountCapacity()

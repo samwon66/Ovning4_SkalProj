@@ -8,6 +8,21 @@ namespace SkalProj_Datastrukturer_Minne
         /// The main method, vill handle the menues for the program
         /// </summary>
         /// <param name="args"></param>
+
+        //Frågan 1: Stacken: stacken används främst för att hålla reda på exekveringsordningen i ett program och för att lagra lokala variabler inne i funktioner.
+        //Den fungerar som en stapel där det senaste tillagda elementet är det första som tas bort. Åtkomst och hantering på stacken är snabb eftersom den är organiserad och strukturerad.
+        //Heapen : heapen används för att lagra stora eller komplicerade saker som tar upp mycket plats som till exempel bilder, långa texter osv. Det är som en stor lagringsplats där vi kan 
+        //ställa in saker och hämta dem senare när vi behöver dem. Som en virtuell låda där vi kan spara olika saker. När vi lägger till saker i heapen så kommer de att stanna där tills vi säger åt datorn att ta bort dem.
+
+        //exempel: Tänk på stacken som en bok där du kan bläddra fram och tillbaka. Information som är staplat på varann i form sidor i en bok. 
+        //exempel:Medan heapen är snarare ett bibliotek, med adresser till böckerna. Men böckerna kan ju byta plats. Det kan inte informationen på sidor göra. 
+
+        //Frågan 2: Value types: En variabel av en värdetyp som innehåller själva datavärdet, dessa lagras i stacken. Exempel på value types är int, char, bool etc.
+        // Reference types: En variabel som innehåller en referens (adress i heapen) till platsen där datan lagras. 
+
+        //Frågan 3: I första metoden kopierar y bara x från början. sedan ändras värdet på y till 4 men x påverkas inte eftersom y bara har en kopia av x-värdet. Så när man returnerar x i slutet så kommer den fortfarande att bara vara 3.
+        // I andra metoden skapas två instanser av MyInt där x.MyValue sätts till tre. sedan tilldelas y värdet av x, vilket innebär att både x och y nu pekar på samma objekt. Så när man returnerar x.MyValue i slutet så är det 4 för 
+        // att både x och y pekar mot värdet 4. 
         static void Main()
         {
             while (true)
@@ -74,7 +89,7 @@ namespace SkalProj_Datastrukturer_Minne
             //Det blir väldigt ineffektivt för listan att skapa en ny array och kopiera alla nuvarande element till den underliggande arrayen varje gång ett nytt element läggs till i listan.
             //Därför dubblerar den sin capacity bara ibland när count blir större än capacity.
             //Frågan 5: Nej
-            //Frågan 6: 
+            //Frågan 6: När man vet att hur många element som man behöver är det bättre att skapa en array.
             
             ExamineList examineList = new ExamineList();
             bool quit = false;
@@ -234,7 +249,7 @@ namespace SkalProj_Datastrukturer_Minne
                         break;
 
                     default:
-                        Console.WriteLine("USe '+' followed by a text of your choice.");
+                        Console.WriteLine("Use '+' followed by a text of your choice.");
                         break;
                 }
             }

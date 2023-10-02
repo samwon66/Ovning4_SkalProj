@@ -18,7 +18,7 @@ namespace SkalProj_Datastrukturer_Minne
             bool iaAdding = true;
             Console.WriteLine("You are adding to the queue.\nPlease your name");
 
-            do
+            while (iaAdding)
             {
                 string input = Console.ReadLine();
 
@@ -37,7 +37,7 @@ namespace SkalProj_Datastrukturer_Minne
                         break;
                 }
             }
-            while (iaAdding);
+            
         }
 
         internal void RemoveFromQueue()

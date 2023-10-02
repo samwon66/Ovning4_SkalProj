@@ -17,7 +17,7 @@ namespace SkalProj_Datastrukturer_Minne
             bool isAdding = true;
             Console.WriteLine("Insert a text to print out in revrese order.");
 
-            do
+            while (isAdding) 
             {
                 string input = Console.ReadLine();
 
@@ -40,7 +40,7 @@ namespace SkalProj_Datastrukturer_Minne
                         break;
                 }
             }
-            while (isAdding);
+            
         }
     }
 }
